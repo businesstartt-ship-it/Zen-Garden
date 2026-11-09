@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zen Garden by DeshaTarc — Rooftop Serenity in Kushtia</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        serif: ['Cormorant Garamond', 'serif'],
+        sans: ['Jost', 'sans-serif'],
+      },
+      colors: {
+        zen: {
+          50: '#f3f7f2',
+          100: '#e3ecdf',
+          200: '#c6d9bf',
+          600: '#4a6b3f',
+          700: '#3a5531',
+          800: '#2d4226',
+          900: '#1f2e1b',
+        },
+        sand: '#f7f4ee',
+        gold: '#b08d4f',
+      }
+    }
+  }
+}
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #f7f4ee; }
+  .hero-bg {
+    background-image: linear-gradient(rgba(31,46,27,0.55), rgba(31,46,27,0.65)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+  }
+  .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(.17,.67,.3,1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .leaf-float { animation: floaty 6s ease-in-out infinite; }
+  @keyframes floaty { 0%,100%{ transform: translateY(0) rotate(0deg);} 50%{ transform: translateY(-18px) rotate(6deg);} }
+  .nav-link { position: relative; }
+  .nav-link::after { content:''; position:absolute; left:0; bottom:-4px; width:0; height:1px; background:#b08d4f; transition:width .35s ease; }
+  .nav-link:hover::after { width:100%; }
+  .menu-card:hover img { transform: scale(1.08); }
+  .glass { backdrop-filter: blur(12px); background: rgba(255,255,255,0.08); }
+  ::-webkit-scrollbar { width: 9px; }
+  ::-webkit-scrollbar-track { background:#e3ecdf; }
+  ::-webkit-scrollbar-thumb { background:#4a6b3f; border-radius:10px; }
+  .bar { transition: height 1s cubic-bezier(.17,.67,.3,1); }
+</style>
+</head>
+<body class="font-sans text-zen-900 antialiased overflow-x-hidden">
+
+<!-- NAV -->
+<header id="nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-500">
+  <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#home" class="flex items-center gap-2 text-white">
+      <svg class="w-8 h-8 leaf-float" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C7 7 3 10 3 15a9 9 0 0018 0c0-5-4-8-9-13zm0 3.6c3.4 3.4 6 5.7 6 9.4a6 6 0 11-12 0c0-3.7 2.6-6 6-9.4z"/></svg>
+      <span class="font-serif text-2xl tracking-wide">Zen Garden</span>
+    </a>
+    <ul id="navlinks" class="hidden md:flex items-center gap-9 text-white/90 text-sm tracking-wider uppercase">
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#menu" class="nav-link">Menu</a></li>
+      <li><a href="#gallery" class="nav-link">Gallery</a></li>
+      <li><a href="#reviews" class="nav-link">Reviews</a></li>
+      <li><a href="#visit" class="nav-link">Visit</a></li>
+    </ul>
+    <a href="tel:+8801720510368" class="hidden md:inline-block border border-white/60 text-white text-sm px-5 py-2 rounded-full hover:bg-white hover:text-zen-800 transition tracking-wider">Reserve</a>
+    <button id="burger" class="md:hidden text-white"><svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  </nav>
+  <div id="mobileMenu" class="md:hidden hidden bg-zen-800/95 backdrop-blur px-6 py-6 space-y-4 text-white">
+    <a href="#home" class="block">Home</a>
+    <a href="#about" class="block">About</a>
+    <a href="#menu" class="block">Menu</a>
+    <a href="#gallery" class="block">Gallery</a>
+    <a href="#reviews" class="block">Reviews</a>
+    <a href="#visit" class="block">Visit</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero-bg min-h-screen flex items-center relative">
+  <div class="max-w-7xl mx-auto px-6 w-full text-white">
+    <div class="max-w-2xl">
+      <p class="flex items-center gap-2 text-gold tracking-[0.35em] uppercase text-xs mb-6 reveal">
+        <span class="w-10 h-px bg-gold"></span>Kushtia's First Rooftop Garden
+      </p>
+      <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl leading-none mb-6 reveal">Serenity<br>Above the City</h1>
+      <p class="text-lg text-white/80 max-w-lg mb-10 reveal">A nature-embraced rooftop dining experience where mindful cuisine meets the calm of a living garden — perched atop DESHA Tower.</p>
+      <div class="flex flex-wrap gap-4 reveal">
+        <a href="#menu" class="bg-gold hover:bg-[#c99f5b] text-zen-900 font-medium px-8 py-4 rounded-full tracking-wide transition shadow-lg shadow-black/30">Explore the Menu</a>
+        <a href="#visit" class="glass border border-white/40 px-8 py-4 rounded-full tracking-wide hover:bg-white hover:text-zen-800 transition">Find Us</a>
+      </div>
+      <div class="flex items-center gap-8 mt-12 reveal">
+        <div><div class="font-serif text-3xl">4.0★</div><div class="text-xs text-white/60 tracking-wider">100 Reviews</div></div>
+        <div class="w-px h-10 bg-white/30"></div>
+        <div><div class="font-serif text-3xl">7AM–11PM</div><div class="text-xs text-white/60 tracking-wider">Open Daily</div></div>
+        <div class="w-px h-10 bg-white/30"></div>
+        <div><div class="font-serif text-3xl">11K+</div><div class="text-xs text-white/60 tracking-wider">Followers</div></div>
+      </div>
+    </div>
+  </div>
+  <a href="#about" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/70 text-xs tracking-widest animate-bounce">SCROLL</a>
+</section>
+
+<!-- TAGS -->
+<section class="bg-zen-800 text-white/90 py-6">
+  <div class="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-x-10 gap-y-3 text-sm tracking-wider">
+    <span class="flex items-center gap-2">🌿 All You Can Eat</span>
+    <span class="flex items-center gap-2">🌅 Outdoor Seating</span>
+    <span class="flex items-center gap-2">🥗 Vegan Options</span>
+    <span class="flex items-center gap-2">☪️ Halal Food</span>
+    <span class="flex items-center gap-2">👥 Group-Friendly</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-28 bg-sand">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+    <div class="reveal relative">
+      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=1740&auto=format&fit=crop" class="rounded-2xl shadow-2xl w-full object-cover h-[520px]">
+      <div class="absolute -bottom-8 -right-4 md:-right-8 bg-white rounded-2xl shadow-xl p-6 w-48">
+        <div class="font-serif text-4xl text-zen-700">Top</div>
+        <div class="text-sm text-zen-600">Floor — Lift 8, DESHA Tower</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <p class="flex items-center gap-2 text-gold tracking-[0.3em] uppercase text-xs mb-5"><span class="w-10 h-px bg-gold"></span>Our Story</p>
+      <h2 class="font-serif text-4xl md:text-5xl leading-tight mb-6 text-zen-800">Where the city breathes and the garden speaks</h2>
+      <p class="text-zen-600 leading-relaxed mb-5">Zen Garden by DeshaTarc is the first ever nature-embraced serene rooftop restaurant in Kushtia. We created a sanctuary above the bustle — a place where lush greenery, soft breezes, and thoughtful cuisine invite you to slow down and savour every moment.</p>
+      <p class="text-zen-600 leading-relaxed mb-8">From sizzling beef steaks to vibrant vegan plates, every dish is served under open skies surrounded by living plants. It's not just a meal — it's a breath of calm.</p>
+      <div class="grid grid-cols-2 gap-6">
+        <div class="border-l-2 border-gold pl-4"><div class="font-serif text-2xl text-zen-800">Mindful Cuisine</div><p class="text-sm text-zen-600">Fresh, flavourful, considered.</p></div>
+        <div class="border-l-2 border-gold pl-4"><div class="font-serif text-2xl text-zen-800">Rooftop Views</div><p class="text-sm text-zen-600">Sunsets over Kushtia.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="py-28 bg-zen-900 text-white relative">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 reveal">
+      <p class="text-gold tracking-[0.3em] uppercase text-xs mb-4">Chef's Selection</p>
+      <h2 class="font-serif text-4xl md:text-6xl">Menu Highlights</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="menu-card reveal group rounded-2xl overflow-hidden bg-zen-800/60 border border-white/5">
+        <div class="h-64 overflow-hidden"><img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=1740&auto=format&fit=crop" class="w-full h-full object-cover transition duration-700"></div>
+        <div class="p-7">
+          <div class="flex justify-between items-start mb-3"><h3 class="font-serif text-2xl">Beef Steak Fried Rice</h3><span class="text-gold font-serif text-xl">৳450</span></div>
+          <p class="text-white/60 text-sm">Tender beef steak served over aromatic fried rice with sautéed mushrooms.</p>
+        </div>
+      </div>
+      <div class="menu-card reveal group rounded-2xl overflow-hidden bg-zen-800/60 border border-white/5">
+        <div class="h-64 overflow-hidden"><img src="https://images.unsplash.com/photo-1562967914-608f82629710?q=80&w=1740&auto=format&fit=crop" class="w-full h-full object-cover transition duration-700"></div>
+        <div class="p-7">
+          <div class="flex justify-between items-start mb-3"><h3 class="font-serif text-2xl">Chicken Fries</h3><span class="text-gold font-serif text-xl">৳280</span></div>
+          <p class="text-white/60 text-sm">Golden crispy chicken fries, perfectly seasoned and served hot.</p>
+        </div>
+      </div>
+      <div class="menu-card reveal group rounded-2xl overflow-hidden bg-zen-800/60 border border-white/5">
+        <div class="h-64 overflow-hidden"><img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=1740&auto=format&fit=crop" class="w-full h-full object-cover transition duration-700"></div>
+        <div class="p-7">
+          <div class="flex justify-between items-start mb-3"><h3 class="font-serif text-2xl">Garden Vegan Bowl</h3><span class="text-gold font-serif text-xl">৳320</span></div>
+          <p class="text-white/60 text-sm">Fresh seasonal vegetables and greens, plant-based and nourishing.</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-14 reveal">
+      <a href="#" class="inline-block border border-gold text-gold px-10 py-4 rounded-full tracking-wider hover:bg-gold hover:text-zen-900 transition">View Full Menu</a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="py-28 bg-sand">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-14 reveal">
+      <p class="text-gold tracking-[0.3em] uppercase text-xs mb-4">Moments</p>
+      <h2 class="font-serif text-4xl md:text-6xl text-zen-800">Life at Zen Garden</h2>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1374&auto=format&fit=crop" class="reveal rounded-xl object-cover h-64 w-full hover:opacity-90 transition col-span-2 md:row-span-2 md:h-full">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1740&auto=format&fit=crop" class="reveal rounded-xl object-cover h-64 w-full hover:opacity-90 transition">
+      <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?q=80&w=1742&auto=format&fit=crop" class="reveal rounded-xl object-cover h-64 w-full hover:opacity-90 transition">
+      <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=1738&auto=format&fit=crop" class="reveal rounded-xl object-cover h-64 w-full hover:opacity-90 transition">
+      <img src="https://images.unsplash.com/photo-1533777324565-a040eb52facd?q=80&w=1725&auto=format&fit=crop" class="reveal rounded-xl object-cover h-64 w-full hover:opacity-90 transition">
+    </div>
+  </div>
+</section>
+
+<!-- POPULAR TIMES -->
+<section class="py-24 bg-white">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center mb-12 reveal">
+      <p class="text-gold tracking-[0.3em] uppercase text-xs mb-4">Plan Your Visit</p>
+      <h2 class="font-serif text-4xl md:text-5xl text-zen-800">Popular Times</h2>
+      <p class="text-zen-600 mt-3">1 PM is usually as busy as it gets — no wait otherwise.</p>
+    </div>
+    <div class="flex gap-2 justify-center mb-8 flex-wrap reveal" id="days">
+      <button data-d="MON" class="day px-4 py-2 rounded-full text-sm">Mon</button>
+      <button data-d="TUE" class="day px-4 py-2 rounded-full text-sm bg-zen-700 text-white">Tue</button>
+      <button data-d="WED" class="day px-4 py-2 rounded-full text-sm">Wed</button>
+      <button data-d="THU" class="day px-4 py-2 rounded-full text-sm">Thu</button>
+      <button data-d="FRI" class="day px-4 py-2 rounded-full text-sm">Fri</button>
+      <button data-d="SAT" class="day px-4 py-2 rounded-full text-sm">Sat</button>
+      <button data-d="SUN" class="day px-4 py-2 rounded-full text-sm">Sun</button>
+    </div>
+    <div id="chart" class="flex items-end justify-between gap-1 md:gap-2 h-56 border-b border-zen-200 reveal"></div>
+    <div class="flex justify-between text-xs text-zen-500 mt-3 px-1"><span>9a</span><span>12p</span><span>3p</span><span>6p</span><span>9p</span></div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="py-28 bg-zen-700 text-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-3 gap-12 items-center mb-16">
+      <div class="reveal text-center md:text-left">
+        <div class="font-serif text-7xl text-gold">4.0</div>
+        <div class="text-gold text-xl mb-2">★★★★☆</div>
+        <p class="text-white/70">Based on 100 Google reviews</p>
+      </div>
+      <div class="md:col-span-2 reveal space-y-2">
+        <div class="flex items-center gap-3"><span class="w-6 text-sm">5</span><div class="flex-1 bg-white/10 rounded-full h-2"><div class="bg-gold h-2 rounded-full" style="width:45%"></div></div></div>
+        <div class="flex items-center gap-3"><span class="w-6 text-sm">4</span><div class="flex-1 bg-white/10 rounded-full h-2"><div class="bg-gold h-2 rounded-full" style="width:30%"></div></div></div>
+        <div class="flex items-center gap-3"><span class="w-6 text-sm">3</span><div class="flex-1 bg-white/10 rounded-full h-2"><div class="bg-gold h-2 rounded-full" style="width:12%"></div></div></div>
+        <div class="flex items-center gap-3"><span class="w-6 text-sm">2</span><div class="flex-1 bg-white/10 rounded-full h-2"><div class="bg-gold h-2 rounded-full" style="width:7%"></div></div></div>
+        <div class="flex items-center gap-3"><span class="w-6 text-sm">1</span><div class="flex-1 bg-white/10 rounded-full h-2"><div class="bg-gold h-2 rounded-full" style="width:6%"></div></div></div>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="reveal glass rounded-2xl p-7 border border-white/10">
+        <div class="text-gold mb-3">★★★★★</div>
+        <p class="text-white/85 mb-5 leading-relaxed">"The only rooftop garden restaurant in Kushtia! The ambiance at sunset is simply magical and the beef steak was incredible."</p>
+        <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gold/30 flex items-center justify-center font-serif">A</div><div><div class="font-medium">Arif Hossain</div><div class="text-xs text-white/50">Local Guide</div></div></div>
+      </div>
+      <div class="reveal glass rounded-2xl p-7 border border-white/10">
+        <div class="text-gold mb-3">★★★★☆</div>
+        <p class="text-white/85 mb-5 leading-relaxed">"Beautiful green environment, great for groups. The vegan options were a pleasant surprise. Will definitely come back."</p>
+        <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gold/30 flex items-center justify-center font-serif">S</div><div><div class="font-medium">Sadia Rahman</div><div class="text-xs text-white/50">Reviewer</div></div></div>
+      </div>
+      <div class="reveal glass rounded-2xl p-7 border border-white/10">
+        <div class="text-gold mb-3">★★★★★</div>
+        <p class="text-white/85 mb-5 leading-relaxed">"Peaceful vibe, friendly staff and delicious food. A hidden gem on top of DESHA Tower. Highly recommended!"</p>
+        <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-gold/30 flex items-center justify-center font-serif">T</div><div><div class="font-medium">Tanvir Ahmed</div><div class="text-xs text-white/50">Local Guide</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT / CONTACT -->
+<section id="visit" class="py-28 bg-sand">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-14">
+    <div class="reveal">
+      <p class="text-gold tracking-[0.3em] uppercase text-xs mb-4">Find Us</p>
+      <h2 class="font-serif text-4xl md:text-5xl text-zen-800 mb-8">Come Breathe With Us</h2>
+      <div class="space-y-6">
+        <div class="flex gap-4"><div class="text-gold text-2xl">📍</div><div><div class="font-medium text-zen-800">Address</div><p class="text-zen-600">Top Floor (Lift-8), DESHA Tower, Upazila More, Kushtia-Jhenaidah Rd, Kushtia 7000</p></div></div>
+        <div class="flex gap-4"><div class="text-gold text-2xl">📞</div><div><div class="font-medium text-zen-800">Phone</div><a href="tel:+8801720510368" class="text-zen-600 hover:text-gold">+880 1720-510368</a></div></div>
+        <div class="flex gap-4"><div class="text-gold text-2xl">🕗</div><div><div class="font-medium text-zen-800">Hours</div><p class="text-zen-600">Open Daily · 7:00 AM – 11:00 PM</p></div></div>
+        <div class="flex gap-4"><div class="text-gold text-2xl">🌐</div><div><div class="font-medium text-zen-800">Online</div><a href="https://deshatarc.com" class="text-zen-600 hover:text-gold">deshatarc.com · Facebook</a></div></div>
+      </div>
+      <div class="flex gap-3 mt-9">
+        <a href="https://maps.google.com" class="bg-zen-700 text-white px-6 py-3 rounded-full hover:bg-zen-800 transition text-sm tracking-wide">Directions</a>
+        <a href="tel:+8801720510368" class="border border-zen-700 text-zen-700 px-6 py-3 rounded-full hover:bg-zen-700 hover:text-white transition text-sm tracking-wide">Call Now</a>
+      </div>
+    </div>
+    <div class="reveal rounded-2xl overflow-hidden shadow-2xl min-h-[420px]">
+      <iframe class="w-full h-full min-h-[420px]" style="border:0" loading="lazy" allowfullscreen
+        src="https://www.google.com/maps?q=Kushtia+Jhenaidah+Road+Kushtia+Bangladesh&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-24 hero-bg text-center text-white">
+  <div class="max-w-3xl mx-auto px-6 reveal">
+    <h2 class="font-serif text-4xl md:text-6xl mb-6">Reserve Your Table Today</h2>
+    <p class="text-white/80 mb-9 text-lg">Experience Kushtia's most serene rooftop dining. Perfect for gatherings, celebrations, or a quiet escape.</p>
+    <a href="tel:+8801720510368" class="inline-block bg-gold hover:bg-[#c99f5b] text-zen-900 font-medium px-10 py-4 rounded-full tracking-wide transition shadow-lg">Call to Reserve</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-zen-900 text-white/70 pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-10 mb-12">
+    <div>
+      <div class="flex items-center gap-2 text-white mb-4"><svg class="w-7 h-7 text-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C7 7 3 10 3 15a9 9 0 0018 0c0-5-4-8-9-13zm0 3.6c3.4 3.4 6 5.7 6 9.4a6 6 0 11-12 0c0-3.7 2.6-6 6-9.4z"/></svg><span class="font-serif text-xl">Zen Garden</span></div>
+      <p class="text-sm leading-relaxed">Kushtia's first nature-embraced rooftop restaurant. A sanctuary of calm and cuisine.</p>
+    </div>
+    <div>
+      <h4 class="text-white font-medium mb-4 tracking-wide">Explore</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#about" class="hover:text-gold">About</a></li>
+        <li><a href="#menu" class="hover:text-gold">Menu</a></li>
+        <li><a href="#gallery" class="hover:text-gold">Gallery</a></li>
+        <li><a href="#reviews" class="hover:text-gold">Reviews</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-medium mb-4 tracking-wide">Contact</h4>
+      <ul class="space-y-2 text-sm">
+        <li>DESHA Tower, Kushtia 7000</li>
+        <li><a href="tel:+8801720510368" class="hover:text-gold">+880 1720-510368</a></li>
+        <li>Open 7 AM – 11 PM</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-white font-medium mb-4 tracking-wide">Follow</h4>
+      <div class="flex gap-3">
+        <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-gold hover:text-zen-900 hover:border-gold transition">f</a>
+        <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-gold hover:text-zen-900 hover:border-gold transition">ig</a>
+        <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-gold hover:text-zen-900 hover:border-gold transition">in</a>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-6 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-white/40">
+    <p>© 2024 Zen Garden by DeshaTarc. All rights reserved.</p>
+    <p>Designed with 🌿 for serene dining.</p>
+  </div>
+</footer>
+
+<script>
+// Scroll nav background
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) nav.classList.add('bg-zen-900/90','backdrop-blur','shadow-lg');
+  else nav.classList.remove('bg-zen-900/90','backdrop-blur','shadow-lg');
+});
+
+// Mobile menu
+document.getElementById('burger').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.toggle('hidden');
+});
+document.querySelectorAll('#mobileMenu a').forEach(a => a.addEventListener('click', () => document.getElementById('mobileMenu').classList.add('hidden')));
+
+// Reveal on scroll
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Popular times chart
+const data = {
+  MON:[20,35,50,65,55,40,45,60,70,55,40,30,20],
+  TUE:[25,40,60,75,85,70,55,65,80,90,75,55,35],
+  WED:[20,38,55,70,60,45,50,62,72,58,42,32,22],
+  THU:[22,42,58,72,65,50,55,68,78,65,48,36,24],
+  FRI:[30,50,70,88,95,80,70,82,95,98,85,65,45],
+  SAT:[35,55,75,90,98,88,78,88,96,99,90,70,50],
+  SUN:[18,30,45,60,50,38,42,55,65,52,38,28,18],
+};
+const times = ['9a','10','11','12','1','2','3','4','5','6','7','8','9p'];
+const chart = document.getElementById('chart');
+function render(day){
+  chart.innerHTML = '';
+  data[day].forEach((v,i) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'flex-1 flex flex-col justify-end group relative h-full';
+    const bar = document.createElement('div');
+    bar.className = 'bar rounded-t bg-zen-200 group-hover:bg-gold w-full';
+    bar.style.height = '0%';
+    if(day==='TUE' && i===4) bar.classList.replace('bg-zen-200','bg-gold');
+    wrap.appendChild(bar);
+    chart.appendChild(wrap);
+    requestAnimationFrame(()=> setTimeout(()=> bar.style.height = v+'%', 40*i));
+  });
+}
+render('TUE');
+document.querySelectorAll('.day').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.day').forEach(b => b.classList.remove('bg-zen-700','text-white'));
+    btn.classList.add('bg-zen-700','text-white');
+    render(btn.dataset.d);
+  });
+});
+</script>
+</body>
+</html>
